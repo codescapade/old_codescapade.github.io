@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+  
+
+  {{ range (where .Pages.ByPublishDate.Reverse "Type" "!=" "invisible") }}
+  {{$dateTime := .PublishDate.Format "2006-01-02" }}
+    {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+    
+    <div class="blog-list-link-container">
+      <a class="blog-list-link" href="{{ .RelPermalink }}">
+        <span class="blog-list-title blog-hover">{{ .Title }}</span>
+        <time class="blog-list-date blog-hover" datetime="{{ $dateTime }}">
+          <span class="blog-list-date-spacer blog-hover">-</span>{{ .PublishDate.Format $dateFormat }}
+        </time>
+        <div class="blog-list-summary blog-hover">
+          {{ .Summary }}
+        </div>
+      </a>
+    </div>
+
+  {{ end }}
+
+{{ end }}
