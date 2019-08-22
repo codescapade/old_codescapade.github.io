@@ -3,13 +3,14 @@
   {{ partial "head.html" . }}
   <body>
     <div class="container">
-      {{ $titleImage := "images/title.png" | absURL }}
+      {{ $titleImage := "images/title.png" | relURL }}
       <img class="title-img" src="{{ $titleImage }}" />
       {{ partial "nav.html" . }}
       <div class="divider"></div>
       <main id="main">
         {{ block "main" . }}{{ end }}
       </main>
+      {{ partial "footer.html" }}
     </div>
   </body>
 </html>

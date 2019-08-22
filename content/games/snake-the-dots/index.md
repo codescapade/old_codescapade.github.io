@@ -1,6 +1,8 @@
 ---
 title: "Snake the Dots"
-date: 2019-08-21T22:12:24+01:00
+releasedate: 2019-09-20
+type: "page"
+layout: "game-static"
 ---
 
 Snake the Dots
