@@ -1,21 +1,31 @@
 {{ define "main" }}
 
-  {{ range (where .Pages.ByPublishDate.Reverse "Type" "!=" "invisible") }}
-  
-    <div class="blog-list-link-container game-list-container">
-      <a class="blog-list-link" href="{{ .RelPermalink }}">
-        <div class="blog-list-title blog-hover">{{ .Title }}</div>
-        {{ with .Resources }}
-          {{ with .GetMatch "{cover.*,*.jpg,*.png,*.jpeg}" }}
-            {{ $cover := .Resize "200x" }}
-            {{ with $cover }}
-              <img class="cover-image" src="{{ .Permalink }}"/>      
+  <div class="row">
+    {{ range (where .Pages.ByPublishDate.Reverse "Type" "!=" "invisible") }}
+
+      <div class="blog-list-link-container game-list-container one-third column">
+        <a class="blog-list-link" href="{{ .RelPermalink }}">
+          <div class="blog-list-title game-list-title blog-hover">{{ .Title }}</div>
+          {{ with .Resources }}
+
+            {{ with .GetMatch "{cover.*,*.jpg,*.png,*.jpeg}" }}
+
+              {{ $cover := .Resize "200x" }}
+              {{ with $cover }}
+
+                <img class="cover-image" src="{{ .Permalink }}"/>   
+
+              {{ end }}
+
             {{ end }}
+
           {{ end }}
-        {{ end }}
-      </a>
-    </div>
+          
+        </a>
+        <div class="game-list-border"></div>
+      </div>
 
-  {{ end }}
-
+    {{ end }}
+  </div>
+  
 {{ end }}

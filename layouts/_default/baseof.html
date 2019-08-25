@@ -2,12 +2,11 @@
 <html lang="en">
   {{ partial "head.html" . }}
   <body>
-    <div class="container">
+    <div class="container one">
       {{ $titleImage := "images/title.png" | relURL }}
       <img class="title-img" src="{{ $titleImage }}" />
       {{ partial "nav.html" . }}
-      <div class="divider"></div>
-      <main id="main">
+      <main id="main" class="one">
         {{ block "main" . }}{{ end }}
       </main>
       {{ partial "footer.html" }}

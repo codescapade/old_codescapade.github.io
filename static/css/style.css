@@ -1,83 +1,150 @@
 html {
+  box-sizing: border-box;
   height: 100%;
+  background-color: #fff;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
-  /* background-color: #efefef; */
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
   color: #a6a6a6;
+}
+
+a {
+  text-decoration: none;
+  color: #47C2FF;
+  font-weight: bold;
+}
+
+a:hover {
+  color: inherit;
+}
+
+@media screen and (min-width: 800px) {
+  a:hover {
+    color: #50D7A4;
+  }
 }
 
 .container {
   position: relative;
-  max-width: 960px;
-  margin: 20px auto;
-  min-height: 100vh;
+  margin: 0 auto;
+  max-width: 1000px;
+  min-height: calc(100vh - 2rem);
 }
 
-#main {
-  padding: 20px 20px 80px 20px;
+.row::before, .row::after {
+  display: table;
+  content: ' ';
+  clear: both;
+}
+
+.one, .one-third, .two-thirds, .one-fourth, .half {
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .one {
+    width: 100%;
+  }
+
+  .half {
+    width: calc(100% / 2);
+  }
+
+  .one-third {
+    width: calc(100% / 3);
+  }
+
+  .one-fourth {
+    width: calc(100% / 4);
+  }
+
+  .two-thirds {
+    width: calc(100% / 3 * 2);
+  }
+
+  .column {
+    float: left;
+  }
 }
 
 .title-img {
+  display: block;
+  margin: 30px auto;
   width: 100%;
   height: auto;
-  padding: 20px 0;
 }
 
-.divider, .footer-divider {
+.divider {
   width: 100%;
-  height: 4px;
+  height: 3px;
+  display: block;
   background-color: #50D7A4;
+  margin-bottom: 5px;
 }
 
-.footer-divider {
-  margin: 20px 0 10px 0;
-}
-
-.footer {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  padding-bottom: 30px;
-  font-size: 12px;
-}
-
-.footer-privacy {
-  padding-left: 10px;
-  font-weight: bolder;
-}
-
-a {
-  color: #47C2FF;
-  text-decoration: none;
-  font-weight: 900;
-}
-
-a:hover {
-  color: #50D7A4;
-}
-
-.nav-menu {
+ul {
   text-align: center;
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  margin: 0 auto;
-  padding: 10px 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-.nav-link {
-  font-weight: bold;
-  font-size: 16px;
-  padding: 5px 2%;
+li {
+  display: inline;
+}
+
+li a {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+}
+
+.navigation {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 5;
+}
+
+#main {
+  padding: 0 20px 2rem 20px;
+  overflow: hidden;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+.mobile-nav {
+  font-size: 2.5rem;
+  
+}
+
+@media screen and (min-width: 800px) {
+  .mobile-nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: block;
+    font-size: 1.5rem;
+    margin: 0 20px;
+  }
 }
 
 .active {
   border-bottom: 3px solid #a6a6a6;
+  padding-bottom: 5px;
 }
 
 .blog-list-link-container {
@@ -86,8 +153,8 @@ a:hover {
 
 .blog-list-title {
   color: #a6a6a6;
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .blog-list-summary {
@@ -99,26 +166,64 @@ a:hover {
   display: inline-block;
 }
 
-.blog-list-link:hover .blog-hover {
-  color: #50D7A4;
+@media screen and (min-width: 800px) {
+  .blog-list-link:hover .blog-hover {
+    color: #50D7A4;
+  }
 }
 
 .blog-list-date {
   color: #a6a6a6;
-  font-size: 20px;
+  font-size: 1.2rem;
 }
 
 .blog-list-date-spacer {
-  padding: 0 8px;
+  padding: 0 0.5em;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding-left: 20px;
+  font-size: 0.7rem;
+  height: 2rem;
+}
+
+@media screen and (min-width: 800px) {
+  .footer {
+    font-size: 0.8rem;
+  }
+  
+}
+
+.footer-privacy {
+  padding-left: 10px;
+  font-weight: bold;
 }
 
 .cover-image {
-  margin: 30px auto;
+  margin: 10px auto;
+  /* padding-bottom: 20px; */
+  
 }
 
 .game-list-container {
   text-align: center;
   display: inline-block;
-  padding: 15px;
+  padding: 20px 0 40px 0;
+  
+  /* margin: 20px 20px 50px 20px; */
+}
+
+.game-list-title {
+  font-size: 1.5rem;
+}
+
+.game-list-border {
+  display: block;
+  height: 3px;
   border-bottom: 3px solid #47C2FF;
+  margin: 10px auto;
+  width: 240px;
 }

@@ -16,23 +16,28 @@ relativeurls = true
     name = "Home"
     url = "/"
     weight = 1
+    pre = "home"
 
   [[menu.main]]
     name = "Blog"
     url = "/blog/"
     weight = 2
+    pre = "description"
 
   [[menu.main]]
     name = "Games"
     url = "/games/"
     weight = 3
+    pre = "videogame_asset"
 
   [[menu.main]]
     name = "Projects"
     url = "/projects/"
     weight = 4
+    pre = "folder"
 
   [[menu.main]]
     name = "About"
     url = "/about/"
     weight = 5
+    pre = "info"
