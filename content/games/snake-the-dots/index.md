@@ -1,8 +1,8 @@
 ---
-title: "Snake the Dots"
-releasedate: 2019-09-20
+title: "Snake The Dots"
+releasedate: "TBD"
 type: "page"
 layout: "game-static"
 ---
 
-Snake the Dots
+Snake The Dots is a mobile action game

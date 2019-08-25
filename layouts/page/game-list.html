@@ -6,21 +6,23 @@
       <div class="blog-list-link-container game-list-container one-third column">
         <a class="blog-list-link" href="{{ .RelPermalink }}">
           <div class="blog-list-title game-list-title blog-hover">{{ .Title }}</div>
-          {{ with .Resources }}
+          <div class="game-list-image-container">
+            {{ with .Resources }}
 
-            {{ with .GetMatch "{cover.*,*.jpg,*.png,*.jpeg}" }}
+              {{ with .GetMatch "{cover.*,*.jpg,*.png,*.jpeg}" }}
 
-              {{ $cover := .Resize "200x" }}
-              {{ with $cover }}
+                {{ $cover := . }}
+                {{ with $cover }}
 
-                <img class="cover-image" src="{{ .Permalink }}"/>   
+                  <img class="cover-image" src="{{ .Permalink }}"/>   
+
+                {{ end }}
 
               {{ end }}
 
             {{ end }}
 
-          {{ end }}
-          
+          </div>
         </a>
         <div class="game-list-border"></div>
       </div>

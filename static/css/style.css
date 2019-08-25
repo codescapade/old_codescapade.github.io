@@ -23,7 +23,7 @@ a {
 }
 
 a:hover {
-  color: inherit;
+  color: #47C2FF;
 }
 
 @media screen and (min-width: 800px) {
@@ -45,7 +45,7 @@ a:hover {
   clear: both;
 }
 
-.one, .one-third, .two-thirds, .one-fourth, .half {
+.one, .one-third, .two-thirds, .one-fourth, .half, .three-fourths {
   width: 100%;
 }
 
@@ -54,20 +54,24 @@ a:hover {
     width: 100%;
   }
 
-  .half {
-    width: calc(100% / 2);
-  }
-
   .one-third {
     width: calc(100% / 3);
+  }
+
+  .two-thirds {
+    width: calc(100% / 3 * 2);
   }
 
   .one-fourth {
     width: calc(100% / 4);
   }
 
-  .two-thirds {
-    width: calc(100% / 3 * 2);
+  .half {
+    width: calc(100% / 2);
+  }
+
+  .three-fourths {
+    width: calc(100% / 4 * 3);
   }
 
   .column {
@@ -90,22 +94,23 @@ a:hover {
   margin-bottom: 5px;
 }
 
-ul {
+nav ul {
+  display: flex;
   text-align: center;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  justify-content: space-around
 }
 
-li {
+nav ul li {
   display: inline;
 }
 
-li a {
+nav ul li a {
   display: inline-block;
   text-align: center;
-  padding: 10px;
+  padding: 2px 6px 6px 6px;
 }
 
 .navigation {
@@ -126,8 +131,7 @@ li a {
 }
 
 .mobile-nav {
-  font-size: 2.5rem;
-  
+  font-size: 2.2rem;
 }
 
 @media screen and (min-width: 800px) {
@@ -144,16 +148,19 @@ li a {
 
 .active {
   border-bottom: 3px solid #a6a6a6;
-  padding-bottom: 5px;
 }
 
 .blog-list-link-container {
   padding-bottom: 50px;
 }
 
+.blog-hover {
+  font-weight: normal;
+}
+
 .blog-list-title {
   color: #a6a6a6;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -166,9 +173,12 @@ li a {
   display: inline-block;
 }
 
+
+
 @media screen and (min-width: 800px) {
   .blog-list-link:hover .blog-hover {
     color: #50D7A4;
+    
   }
 }
 
@@ -185,16 +195,18 @@ li a {
   width: 100%;
   position: absolute;
   bottom: 0;
-  padding-left: 20px;
   font-size: 0.7rem;
   height: 2rem;
+}
+
+.copyright {
+  padding-left: 20px;
 }
 
 @media screen and (min-width: 800px) {
   .footer {
     font-size: 0.8rem;
   }
-  
 }
 
 .footer-privacy {
@@ -203,7 +215,9 @@ li a {
 }
 
 .cover-image {
-  margin: 10px auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   /* padding-bottom: 20px; */
   
 }
@@ -220,10 +234,23 @@ li a {
   font-size: 1.5rem;
 }
 
+.game-list-image-container {
+  margin: auto;
+  display: block;
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+}
+
 .game-list-border {
   display: block;
   height: 3px;
   border-bottom: 3px solid #47C2FF;
   margin: 10px auto;
   width: 240px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
