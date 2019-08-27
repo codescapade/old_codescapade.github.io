@@ -9,7 +9,7 @@ relativeurls = true
 
 [params]
   dateFormat = "Jan 2, 2006"
-  env = "dev"
+  env = "production"
 
 [menu]
   [[menu.main]]

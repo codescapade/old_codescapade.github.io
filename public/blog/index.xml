@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Codescapade</title>
+    <link>/blog/</link>
+    <description>Recent content in Blog on Codescapade</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Aug 2019 22:13:31 +0100</lastBuildDate>
+    
+	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Beginning</title>
+      <link>/blog/2019/the-beginning/</link>
+      <pubDate>Sun, 25 Aug 2019 22:13:31 +0100</pubDate>
+      
+      <guid>/blog/2019/the-beginning/</guid>
+      <description>&lt;p&gt;I decided to create a new portfolio / blog website two weeks ago. This is it, it is still a work in progress but it works.
+I&amp;rsquo;ve made blog sites before but those were mostly Wordpress with an existing theme. This time I have a lot more experience in web dev so I wanted more control.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

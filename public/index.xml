@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Codescapade</title>
+    <link>/</link>
+    <description>Recent content on Codescapade</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Aug 2019 22:13:31 +0100</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Squishy&#39;s Escape</title>
+      <link>/games/squishys-escape/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/games/squishys-escape/</guid>
+      <description>Squishy&amp;rsquo;s Escape is a small 2d platformer I created for Ludum Dare 35 in 48 hours. You can play it here. Everything needs to be created during the Game Jam except for the game engine / framework. The theme of the jam was Shapeshift. In the game you can turn into a parachute and a heavy block to help you during the levels. There are only 6 levels because I ran out of time.</description>
+    </item>
+    
+    <item>
+      <title>Dr. Snake</title>
+      <link>/games/dr-snake/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/games/dr-snake/</guid>
+      <description>I created Dr. Snake for Ludum Dare 41 in 48 hours. The theme was Combine 2 Incompatible Genres. I decided to combine snake, a topdown game with Dr. Mario, a game you look at from the side with gravity. The goal of the game is to remove all circles from the level by matching 3 or more snake body parts of the same color horizontally or vertically with the circle of that color.</description>
+    </item>
+    
+    <item>
+      <title>Snake The Dots</title>
+      <link>/games/snake-the-dots/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/games/snake-the-dots/</guid>
+      <description>&lt;p&gt;Snake The Dots is a mobile action game where you play as a snake and you get longer when you eat food just like in the
+original snake game. You have to connect the dots in the level with your body to complete the level.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Beginning</title>
+      <link>/blog/2019/the-beginning/</link>
+      <pubDate>Sun, 25 Aug 2019 22:13:31 +0100</pubDate>
+      
+      <guid>/blog/2019/the-beginning/</guid>
+      <description>&lt;p&gt;I decided to create a new portfolio / blog website two weeks ago. This is it, it is still a work in progress but it works.
+I&amp;rsquo;ve made blog sites before but those were mostly Wordpress with an existing theme. This time I have a lot more experience in web dev so I wanted more control.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/games/snake-the-dots-privacy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/games/snake-the-dots-privacy/</guid>
+      <description> Privacy Policy(function (w,d) {var loader = function () {var s = d.createElement(&#34;script&#34;), tag = d.getElementsByTagName(&#34;script&#34;)[0]; s.src=&#34;https://cdn.iubenda.com/iubenda.js&#34;; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener(&#34;load&#34;, loader, false);}else if(w.attachEvent){w.attachEvent(&#34;onload&#34;, loader);}else{w.onload = loader;}})(window, document); </description>
+    </item>
+    
+  </channel>
+</rss>
