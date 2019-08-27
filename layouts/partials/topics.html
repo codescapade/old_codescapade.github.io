@@ -1,0 +1,6 @@
+<div class="topics-title">Topics</div>
+<ul class="topics">
+  {{ range .Site.Taxonomies.tags }}
+    <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a><span> ({{ .Count }})</span></li>
+  {{ end }}
+</ul>

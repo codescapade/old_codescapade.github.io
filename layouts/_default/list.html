@@ -1,33 +1,28 @@
 {{ define "main" }}
   <div class="row">
-    <div class="three-fourths column">
+    <div class="one column">
       {{ range (where .Pages.ByPublishDate.Reverse "Type" "!=" "invisible") }}
 
         {{ $dateTime := .PublishDate.Format "2006-01-02" }}
         {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
 
         <div class="blog-list-link-container">
-          <a class="blog-list-link" href="{{ .RelPermalink }}">
-            <span class="blog-list-title blog-hover">{{ .Title }}</span>
-            <time class="blog-list-date blog-hover" datetime="{{ $dateTime }}">
-              <span class="blog-list-date-spacer blog-hover">-</span>{{ .PublishDate.Format $dateFormat }}
-            </time>
-            <div class="blog-list-summary blog-hover">
-              {{ .Summary }}
-            </div>
-          </a>
+          <span class="blog-list-title">{{ .Title }}</span>
+          <time class="blog-list-date" datetime="{{ $dateTime }}">
+            <span class="blog-list-date-spacer">-</span>{{ .PublishDate.Format $dateFormat }}
+          </time>
+          <div class="blog-list-summary blog-hover">
+            {{ .Summary }}
+          </div>
+          {{ if .Truncated }}
+
+            <a href="{{ .RelPermalink }}">Read More...</a>
+            
+          {{ end }}
         </div>
 
       {{ end }}
     </div>
-    <div class="one-fourth column">
-      <ul>
-        {{ range .Site.Taxonomies.tags }}
-          <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a><span>({{ .Count }})</span></li>
-        {{ end }}
-      </ul>
-    </div>
   </div>
   
-
 {{ end }}

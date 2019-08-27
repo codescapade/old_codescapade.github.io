@@ -12,11 +12,19 @@
         <li>
           <a class="nav-link" href="{{ .URL }}">
             <span class="desktop-nav {{ if $active }}active{{ end }}">{{ .Name }}</span>
-            <i class="material-icons-outlined mobile-nav {{ if $active }}active{{ end }}">{{ .Pre }}</i>
+            <span class="mobile-nav {{ if $active }}active{{ end }}">{{ .Pre }}</span>
+            <!-- <i class="material-icons-outlined mobile-nav {{ if $active }}active{{ end }}">{{ .Pre }}</i> -->
+            <!-- {{ .Pre }} -->
           </a>
         </li>
         
       {{ end }}
+      <li>
+        <a id="darkMode" class="nav-link" href="#">
+          <i id="sunIcon" class="feather-icon" data-feather="sun"></i>
+          <i id="moonIcon" class="feather-icon" data-feather="moon"></i>
+        </a>
+      </li>
     </ul>
   </nav>
   <div class="divider"></div>

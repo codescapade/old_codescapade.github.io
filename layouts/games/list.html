@@ -1,7 +1,7 @@
 {{ define "main" }}
 
   <div class="row">
-    {{ range (where .Pages.ByPublishDate.Reverse "Type" "!=" "invisible") }}
+    {{ range (where .Pages.ByWeight.Reverse "Type" "!=" "invisible") }}
 
       <div class="blog-list-link-container game-list-container one-third column">
         <a class="blog-list-link" href="{{ .RelPermalink }}">

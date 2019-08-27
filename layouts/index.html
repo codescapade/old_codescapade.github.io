@@ -1,8 +1,39 @@
 {{ define "main" }}
 
-<div>
-  <h1>{{ .Site.Title }}</h1>
-  <p>Welcome</p>
-</div>
+  <!-- <p>Hi, welcome to my blog / portfolio site.</p> -->
+
+  <h2>Latest Blog Post</h2>
+  {{ range first 1 (where .Pages "Type" "blog") }}
+
+    <div class="blog-list-link-container">
+      <span class="home-list-title">{{ .Title }}</span>
+      <div class="blog-list-summary">
+        {{ .Summary }}
+      </div>
+      {{ if .Truncated }}
+
+        <a href="{{ .RelPermalink }}">Read More...</a>
+
+      {{ end }}
+    </div>
+
+  {{ end }}
+  
+  <h2>Latest Game</h2>
+  {{ range last 1 (where .Pages "Type" "game") }}
+
+    <div class="blog-list-link-container">
+      <span class="home-list-title">{{ .Title }}</span>
+      <div class="blog-list-summary">
+        {{ .Summary }}
+      </div>
+      {{ if .Truncated }}
+
+        <a href="{{ .RelPermalink }}">Read More...</a>
+
+      {{ end }}
+    </div>
+
+  {{ end }}
 
 {{ end }}
