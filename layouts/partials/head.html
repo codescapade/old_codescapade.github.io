@@ -13,7 +13,5 @@
   {{ if (eq .Site.Params.env "production")  }}
     {{ partial "iubenda-cookie.html" }}
   {{ end }}
-  {{ $small := "js/small.js" | relURL }}
-  <script src="{{ $small }}"></script>
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
