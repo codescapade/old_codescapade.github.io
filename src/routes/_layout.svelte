@@ -5,18 +5,30 @@
 </script>
 
 <style>
-	main {
+	.container {
 		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
 		margin: 0 auto;
-		box-sizing: border-box;
+		max-width: 1000px;
+		min-height: cacl(100vh - 2rem);
+	}
+
+	main {
+		padding: 30px 20px 50px 20px;
+		overflow: hidden;
+	}
+
+	.title-img {
+		display: block;
+		margin: 30px auto;
 	}
 </style>
 
-<Nav {segment}/>
 
-<main>
-	<slot></slot>
-</main>
+<div class="container">
+	<img class="title-img" src="title.png" alt="title"/>
+	<Nav {segment}/>
+	<main>
+		
+		<slot></slot>
+	</main>
+</div>

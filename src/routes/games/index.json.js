@@ -1,4 +1,4 @@
-import {getPosts} from './_posts.js';
+import {getPosts} from '../blog/_posts.js';
 
 const contents = JSON.stringify(getPosts().map(post => {
 	return {
