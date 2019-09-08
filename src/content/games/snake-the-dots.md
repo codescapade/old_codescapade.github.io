@@ -2,7 +2,8 @@
 title: Snake The Dots
 releaseDate: TBD
 weight: 4
-cover: games/snake-the-dots/cover.png
+cover: games-static/snake-the-dots/cover.png
+draft: false
 ---
 
 Snake The Dots is a mobile action game where you play as a snake and you get longer when you eat food just like in the
@@ -11,4 +12,4 @@ Each level is procedurally generated. You move faster and have to complete a lon
 
 The game is still in development. I hope to release it before the end of 2019.
 
-![screenshot-2](games/snake-the-dots/screenshot-2.png)
+![screenshot-2](games-static/snake-the-dots/screenshot-2.png)

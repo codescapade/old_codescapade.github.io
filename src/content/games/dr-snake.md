@@ -2,7 +2,8 @@
 title: Dr. Snake
 releaseDate: 2018-04-24
 weight: 2
-cover: games/dr-snake/cover.png
+cover: games-static/dr-snake/cover.png
+draft: false
 ---
 
 
@@ -11,7 +12,7 @@ I created Dr. Snake for Ludum Dare 41 in 48 hours. The theme was **Combine 2 Inc
 
 While the snake moves it works as a top down game, you can go in any direction. As soon as you hit something the snake keeps it shape and falls down like in Dr. Mario and stops when any of the parts hit something. If you match 4 or more of the same color those parts get removed. If this breaks the snake it breaks into separate parts that fall independently. You can play it [here](https://codescapade.github.io/LD41/).
 
-![screenshot-1](games/dr-snake/screenshot-1.png)
+![screenshot-1](games-static/dr-snake/screenshot-1.png)
 
 
 ### Development
@@ -19,4 +20,4 @@ I used [Phaser CE](https://phaser.io/download/phaserce) with TypeScript as frame
 
 I might create a full game out of this at a later point. Seems it could be a fun mobile game. I would probably switch to a different framework then because WebGL is not a great option for mobile.
 
-![screenshot-2](games/dr-snake/screenshot-2.png)
+![screenshot-2](games-static/dr-snake/screenshot-2.png)

@@ -1,7 +1,6 @@
 ---
 title: The Beginning
 date: 2019-08-25
-type: blog
 draft: false
 ---
 
