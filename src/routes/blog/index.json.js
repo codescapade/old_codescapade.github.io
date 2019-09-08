@@ -1,18 +1,25 @@
-import {getPosts} from './_posts';
+/**
+ * @fileoverview Get posts data for the blog list.
+ */
 
-const contents = JSON.stringify(getPosts().map(post => {
-	return {
-		title: post.title,
-		slug: post.slug,
-		excerpt: post.excerpt,
-		displaydate: post.displaydate
-	};
-}));
+import { getPostData } from '../_posts';
+
+// Post contents array.
+const contents = JSON.stringify(
+  getPostData('post').map((post) => {
+    return {
+      title: post.title,
+      slug: post.slug,
+      excerpt: post.excerpt,
+      displaydate: post.displaydate,
+    };
+  })
+);
 
 export function get(req, res) {
-	res.writeHead(200, {
-		'Content-Type': 'application/json'
-	});
+  res.writeHead(200, {
+    'Content-Type': 'application/json',
+  });
 
-	res.end(contents);
+  res.end(contents);
 }

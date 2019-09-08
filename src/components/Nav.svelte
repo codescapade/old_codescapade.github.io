@@ -1,11 +1,16 @@
+<!--
+	Navigation component.
+-->
 
 <script>
 	import Divider from './Divider.svelte';
 	import { HomeIcon, BookOpenIcon, SunIcon, MoonIcon } from 'svelte-feather-icons';
 	import { theme } from '../store';
 
+	// Segment gets the current page to highlight in the nav.
 	export let segment;
 
+	// Switch dark light theme.
 	function toggleTheme() {
 		if ($theme === 'light') {
 			theme.set('dark');
@@ -41,11 +46,19 @@
 		top: 0;
 		background-color: var(--background);
 		z-index: 5;
-		transition: 0.5s;
+		transition: 0.3s;
 	}
 
 	.desktop-nav {
 		display: none;
+	}
+
+	@media screen and (min-width: 800px) {
+		.desktop-nav {
+			display: block;
+			font-size: 1.2rem;
+			padding-top: 6px;
+		}
 	}
 
 	.mobile-nav {
@@ -54,22 +67,18 @@
 		font-size: 2.2rem;
 	}
 
+	@media screen and (min-width: 800px) {
+		.mobile-nav {
+			display: none;
+		}
+	}
+
 	a {
 		color: var(--header-color);
 		transition: 0.3s;
 	}
 
 	@media screen and (min-width: 800px) {
-		.mobile-nav {
-			display: none;
-		}
-
-		.desktop-nav {
-			display: block;
-			padding-top: 6px;
-			font-size: 1.2rem;
-		}
-
 		a:hover {
 			color: var(--link-hover) !important;
 			transition: 0.3s;
@@ -81,11 +90,6 @@
 	}
 
 </style>
-<svelte:head>
-	{#if $theme === 'dark'}
-	<link rel="stylesheet" href="dark.css">
-	{/if}
-</svelte:head>
 
 <div class='navigation'>
 	<nav>
@@ -123,6 +127,7 @@
 				</a>
 			</li>
 			<li>
+				<!-- Link does nothing. Use on click to switch themes. -->
 				<a href="javascript:void(0)" on:click='{toggleTheme}'>
 					{#if $theme === 'dark'}
 						<SunIcon />

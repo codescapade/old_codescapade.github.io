@@ -1,9 +1,13 @@
-import { getGames } from './_games';
+/**
+ * @fileoverview Get all the game posts. Works just like the blog json.js file.
+ */
+
+import { getPostData } from '../_posts';
 
 const lookup = new Map();
 
-getGames().forEach((game) => {
-    lookup.set(game.slug, JSON.stringify(game));
+getPostData('game').forEach((post) => {
+  lookup.set(post.slug, JSON.stringify(post));
 });
 
 export function get(req, res, next) {
@@ -20,8 +24,10 @@ export function get(req, res, next) {
       'Content-Type': 'application/json',
     });
 
-    res.end(JSON.stringify({
-      message: 'Page not found',
-    }));
+    res.end(
+      JSON.stringify({
+        message: 'Page not found',
+      })
+    );
   }
 }

@@ -1,30 +1,39 @@
-import {getPosts} from '../_posts';
+/**
+ * @fileoverview This creates a map with all posts.
+ */
+
+import { getPostData } from '../../_posts';
 
 const lookup = new Map();
 
-getPosts().forEach(post => {
-	lookup.set(post.slug, JSON.stringify(post));
+// Load all posts from the _posts.js and map them by slug.
+getPostData('post').forEach((post) => {
+  lookup.set(post.slug, JSON.stringify(post));
 });
 
 export function get(req, res, next) {
-	// the `slug` parameter is available because
-	// this file is called [slug].json.js
-	const { year, slug } = req.params;
-	const completeSllug = `${year}/${slug}`;
-	
-	if (lookup.has(completeSllug)) {
-		res.writeHead(200, {
-			'Content-Type': 'application/json'
-		});
+  // Folder structure is [year][slug] so year and slug are available as parameters.
+  const { year, slug } = req.params;
 
-		res.end(lookup.get(completeSllug));
-	} else {
-		res.writeHead(404, {
-			'Content-Type': 'application/json'
-		});
+  // Create the slug from the year + slug.
+  const completeSllug = `${year}/${slug}`;
 
-		res.end(JSON.stringify({
-			message: `Page not found`
-		}));
-	}
+  // If available in the json return the post.
+  if (lookup.has(completeSllug)) {
+    res.writeHead(200, {
+      'Content-Type': 'application/json',
+    });
+
+    res.end(lookup.get(completeSllug));
+  } else {
+    res.writeHead(404, {
+      'Content-Type': 'application/json',
+    });
+
+    res.end(
+      JSON.stringify({
+        message: `Page not found`,
+      })
+    );
+  }
 }

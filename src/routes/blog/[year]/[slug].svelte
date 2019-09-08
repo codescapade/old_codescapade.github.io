@@ -1,4 +1,9 @@
+<!--
+	Template for a blog post.
+-->
+
 <script context="module">
+	// preload the post data.
 	export async function preload({ params, query }) {
 		const res = await this.fetch(`blog/${params.year}/${params.slug}.json`);
 		const data = await res.json();
@@ -12,6 +17,7 @@
 </script>
 
 <script>
+	// This will be populated by the preload function above.
 	export let post;
 </script>
 

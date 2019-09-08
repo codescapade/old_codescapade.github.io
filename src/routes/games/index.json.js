@@ -1,17 +1,23 @@
-import { getGames } from './_games';
+/**
+ * @fileoverview Get the game post data for the game list overview.
+ */
 
-const contents = JSON.stringify(getGames().map(game => {
-	return {
-		title: game.title,
-		slug: game.slug,
-		cover: game.cover,
-	};
-}));
+import { getPostData } from '../_posts';
+
+const contents = JSON.stringify(
+  getPostData('game').map((post) => {
+    return {
+      title: post.title,
+      slug: post.slug,
+      cover: post.cover,
+    };
+  })
+);
 
 export function get(req, res) {
-	res.writeHead(200, {
-		'Content-Type': 'application/json',
-	});
+  res.writeHead(200, {
+    'Content-Type': 'application/json',
+  });
 
-	res.end(contents);
+  res.end(contents);
 }

@@ -1,24 +1,28 @@
-import { getGames } from './games/_games';
-import { getPosts } from './blog/_posts';
+/**
+ * @fileoverview The home page data. Gets the latest blog post and game to put on the homepage.
+ */
 
-const game = getGames().map(game => {
-  return {
-    title: game.title,
-    slug: game.slug,
-    excerpt: game.excerpt,
-  }
-});
-const post = getPosts().map(post => {
+import { getPostData } from './_posts';
+
+const games = getPostData('game').map((post) => {
   return {
     title: post.title,
     slug: post.slug,
-    excerpt: post.excerpt
-  }
+    excerpt: post.excerpt,
+  };
+});
+
+const posts = getPostData('post').map((post) => {
+  return {
+    title: post.title,
+    slug: post.slug,
+    excerpt: post.excerpt,
+  };
 });
 
 const contents = JSON.stringify({
-  game: game[0],
-  post: post[0],
+  game: games[0],
+  post: posts[0],
 });
 
 export function get(req, res) {

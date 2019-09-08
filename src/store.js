@@ -1,3 +1,7 @@
+/**
+ * @fileoverview Local storage for the theme variable.
+ */
+
 import { writable } from 'svelte/store';
 
 const createWriteableStore = (key, startValue) => {
@@ -15,8 +19,8 @@ const createWriteableStore = (key, startValue) => {
       subscribe((current) => {
         localStorage.setItem(key, JSON.stringify(current));
       });
-    }
+    },
   };
-}
+};
 
 export const theme = createWriteableStore('theme', 'light');

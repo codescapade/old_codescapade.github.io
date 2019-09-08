@@ -1,11 +1,13 @@
-
+<!--
+  Divider component. Show green divider bar.
+-->
 <style>
   div {
-    width: 100%;
-    height: 3px;
+    background-color: var(--link-hover);
     display: block;
-    background-color: #50D7A4;
+    height: 3px;
     margin-bottom: 5px;
+    width: 100%;
 
   }
 </style>

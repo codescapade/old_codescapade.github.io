@@ -1,3 +1,7 @@
+<!--
+	Error page. Like when you get a 404 error.
+-->
+
 <script>
 	export let status;
 	export let error;

@@ -1,6 +1,11 @@
+<!--
+	Create the blog overview page.
+-->
+
 <script context="module">
+	// Preload the overview post data.
 	export function preload({ params, query }) {
-		return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
+		return this.fetch('blog.json').then(r => r.json()).then(posts => {
 			return { posts };
 		});
 	}
@@ -50,7 +55,7 @@
 			<div class="post-title">{post.title}</div>
 			<div class="post-date">Date: {post.displaydate}</div>
 			<p>
-				{post.excerpt}
+				{@html post.excerpt}
 				<br>
 				<a rel='prefetch' href='blog/{post.slug}'>Read more...</a>
 			</p>

@@ -15,27 +15,15 @@
 	<link rel='stylesheet' href='vs2015.css'>
 	<link rel='manifest' href='manifest.json'>
 	<link rel='icon' type='image/png' href='favicon.png'>
-	<!-- Sapper generates a <style> tag containing critical CSS
-	     for the current page. CSS for the rest of the app is
-	     lazily loaded when it precaches secondary pages -->
 	%sapper.styles%
 
-	<!-- This contains the contents of the <svelte:head> component, if
-	     the current page has one -->
 	%sapper.head%
-	<!-- <script type="text/javascript">
-	var _iub = _iub || [];
-	_iub.csConfiguration = {"lang":"en","siteId":1652138,"localConsentDomain":"codescapade.github.io","cookiePolicyId":41964441, "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"acceptButtonColor":"#47c2ff","acceptButtonCaptionColor":"white","customizeButtonColor":"#50D7A4","customizeButtonCaptionColor":"white","position":"float-top-center","textColor":"black","backgroundColor":"#dedede" }};
-	</script><script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script> -->
+
 </head>
 <body>
-	<!-- The application will be rendered inside this element,
-	     because `src/client.js` references it -->
 	<div id='sapper'>%sapper.html%</div>
-
-	<!-- Sapper creates a <script> tag containing `src/client.js`
-	     and anything else it needs to hydrate the app and
-	     initialise the router -->
+	
 	%sapper.scripts%
+	
 </body>
 </html>

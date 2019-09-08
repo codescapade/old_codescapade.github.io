@@ -1,3 +1,7 @@
+<!--
+  Game post template.
+-->
+
 <script context="module">
   export async function preload({ params, query }) {
     const res = await this.fetch(`games/${params.slug}.json`);
@@ -42,11 +46,11 @@
 </style>
 
 <svelte:head>
-	<title>{game.title} | Codescapade</title>
+  <title>{game.title} | Codescapade</title>
 </svelte:head>
 
 <div class="game-title">{game.title}</div>
 <div class="game-date">Release Date: {game.displaydate}</div>
-<div class='content'>
-	{@html game.html}
+<div class="content">
+  {@html game.html}
 </div>
