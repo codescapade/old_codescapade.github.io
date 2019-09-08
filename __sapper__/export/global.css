@@ -1,9 +1,21 @@
+:root {
+	--link: #47C2FF;
+	--link-hover: #50D7A4;
+	--header-color: #a6a6a6;
+}
+
 html {
 	box-sizing: border-box;
 	height: 100%;
 }
+
 body {
+	--background: #fff;
+	--color: #111;
 	font-family: 'Montserrat', sans-serif;
+	background-color: var(--background);
+	color: var(--color);
+	transition: 0.5s;
 }
 
 svg {
@@ -11,24 +23,26 @@ svg {
 	height: 2.2rem;
 }
 
-
 h1, h2, h3, h4, h5, h6 {
-	color: #a6a6a6;
+	color: var(--header-color);
 }
 
 a {
 	text-decoration: none;
-	color: #47C2FF;
+	color: var(--link);
 	font-weight: bold;
+	transition: 0.3s;
 }
 
 a:hover {
-	color: #47C2FF;
+	color: var(--link);
+	transition: 0.3s;
 }
 
 @media screen and (min-width: 800px) {
 	a:hover {
-		color: #50D7A4;
+		color: var(--link-hover);
+		transition: 0.3s;
 	}
 }
 
@@ -46,4 +60,38 @@ code {
 	font-size: calc(1em - 2px);
 	padding: 0.2em 0.4em;
 	border-radius: 2px;
+}
+
+.one, .one-third, .two-thirds, .one-fourth, .half, .three-fourths {
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .one {
+    width: 100%;
+  }
+
+  .one-third {
+    width: calc(100% / 3);
+  }
+
+  .two-thirds {
+    width: calc(100% / 3 * 2);
+  }
+
+  .one-fourth {
+    width: calc(100% / 4);
+  }
+
+  .half {
+    width: calc(100% / 2);
+  }
+
+  .three-fourths {
+    width: calc(100% / 4 * 3);
+  }
+
+  .column {
+    float: left;
+  }
 }

@@ -1,7 +1,5 @@
 <script context="module">
 	export async function preload({ params, query }) {
-		// the `slug` parameter is available because
-		// this file is called [slug].svelte
 		const res = await this.fetch(`blog/${params.year}/${params.slug}.json`);
 		const data = await res.json();
 
@@ -18,22 +16,7 @@
 </script>
 
 <style>
-	/*
-		By default, CSS is locally scoped to the component,
-		and any unused styles are dead-code-eliminated.
-		In this page, Svelte can't know which elements are
-		going to appear inside the {{{post.html}}} block,
-		so we have to use the :global(...) modifier to target
-		all elements inside .content
-	*/
-	.content :global(h2) {
-		font-size: 1.4em;
-		font-weight: 500;
-	}
-
 	.content :global(pre) {
-		/* background-color: #f9f9f9; */
-		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
 		padding: 0.5em;
 		border-radius: 2px;
 		overflow-x: auto;
@@ -45,21 +28,26 @@
 		padding: 0;
 	}
 
-	.content :global(ul) {
-		line-height: 1.5;
+	.post-title {
+		color: var(--header-color);
+		font-size: 2.2rem;
+		font-weight: bold;
 	}
 
-	.content :global(li) {
-		margin: 0 0 0.5em 0;
+	.post-date {
+		font-size: 1.2rem;
+		color: var(--header-color);
+		font-weight: bold;
+		margin: 10px 0 30px 0;
 	}
 </style>
 
 <svelte:head>
-	<title>{post.title}</title>
+	<title>{post.title} | Codescapade</title>
 </svelte:head>
 
-<h1>{post.title}</h1>
-<h3>{post.displaydate}</h3>
+<div class="post-title">{post.title}</div>
+<div class="post-date">Date: {post.displaydate}</div>
 <div class='content'>
 	{@html post.html}
 </div>

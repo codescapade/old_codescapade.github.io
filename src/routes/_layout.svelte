@@ -1,6 +1,13 @@
 <script>
 	import Nav from '../components/Nav.svelte';
-
+	import Footer from '../components/Footer.svelte';
+	import { theme } from '../store';
+	import { onMount } from 'svelte';
+	
+	onMount(() => {
+		theme.useLocalStorage();
+	});
+	
 	export let segment;
 </script>
 
@@ -9,7 +16,7 @@
 		position: relative;
 		margin: 0 auto;
 		max-width: 1000px;
-		min-height: cacl(100vh - 2rem);
+		min-height: calc(100vh - 2rem);
 	}
 
 	main {
@@ -31,4 +38,5 @@
 		
 		<slot></slot>
 	</main>
+	<Footer />
 </div>

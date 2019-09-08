@@ -5,23 +5,23 @@ import markdownIt from 'markdown-it';
 import hljs from 'highlight.js';
 import mila from 'markdown-it-link-attributes';
 
-const POST_DIR = './src/content/posts';
+const GAMES_DIR = './src/content/games';
 
-export function getPosts() {
-	const slugs = glob.sync(`${POST_DIR}/**/*.md`).map((file) => {
-		const split = file.split('/');
-		return `${split[4]}/${split[5].slice(0, -3)}`;
+export function getGames() {
+	const slugs = glob.sync(`${GAMES_DIR}/*.md`).map((file) => {
+    const split = file.split('/');
+		return `${split[split.length - 1].slice(0, -3)}`;
 	});
 
-	return slugs.map(getPost).filter((post) => {
-		return !post.draft;
+	return slugs.map(getGame).filter((game) => {
+		return !game.draft;
 	}).sort((a, b) => {
-		return a.date < b.date ? 1: -1;
+		return a.weight < b.weight ? 1: -1;
 	});
 }
 
-function getPost(slug) {
-	const file = `${POST_DIR}/${slug}.md`;
+function getGame(slug) {
+	const file = `${GAMES_DIR}/${slug}.md`;
 
 	const markdown = fs.readFileSync(file, 'utf-8');
 	const md = new markdownIt({
@@ -46,6 +46,15 @@ function getPost(slug) {
 	});
 	const frontMatter = fm(markdown);
 
+  const releaseDate = frontMatter.attributes.releaseDate;
+  let displaydate;
+  if (releaseDate === 'TBD') {
+    displaydate = releaseDate;
+  } else {
+    const date = new Date(releaseDate);
+    displaydate = `${date.getFullYear()}-${addZero(date.getMonth() + 1)}-${addZero(date.getDate())}`;
+	}
+	
 	let excerpt;
 	let body;
 	if (frontMatter.body.indexOf('<!--more-->') !== -1) {
@@ -62,9 +71,6 @@ function getPost(slug) {
 			excerpt = body;
 		}
 	}
-
-	const date = new Date(frontMatter.attributes.date);
-	const displaydate = `${date.getFullYear()}-${addZero(date.getMonth() + 1)}-${addZero(date.getDate())}`;
 	
 	const html = md.render(body);
 	

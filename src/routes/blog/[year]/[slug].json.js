@@ -1,9 +1,8 @@
-import {getPosts} from '../_posts.js';
+import {getPosts} from '../_posts';
 
 const lookup = new Map();
 
-getPosts()
-	.forEach(post => {
+getPosts().forEach(post => {
 	lookup.set(post.slug, JSON.stringify(post));
 });
 
@@ -25,7 +24,7 @@ export function get(req, res, next) {
 		});
 
 		res.end(JSON.stringify({
-			message: `Not found`
+			message: `Page not found`
 		}));
 	}
 }

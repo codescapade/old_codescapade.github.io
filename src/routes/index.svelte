@@ -1,46 +1,38 @@
+<script context="module">
+	export function preload({ params, query }) {
+		return this.fetch('index.json').then(r => r.json()).then(content => {
+			return { content };
+		});
+	}
+</script>
+
+<script>
+	export let content;
+</script>
 <style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
-	}
-
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
-
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
+	.post {
+		padding-bottom: 50px;
 	}
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Codescapade</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<div class="post">
+	<h1>Latest Blog Post</h1>
+	<h3>{content.post.title}</h3>
+	<p>
+		{content.post.excerpt}<br>
+		<a href='blog/{content.post.slug}'>Read More...</a>
+	</p>
+</div>
 
-<figure>
-	<img alt='Borat' src='great-success.png'>
-	<figcaption>HIGH FIVE!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading. t</strong></p>
+<div class="post">
+	<h1>Latest Game</h1>
+	<h3>{content.game.title}</h3>
+	<p>
+		{content.game.excerpt}<br>
+		<a href='games/{content.game.slug}'>Read More...</a>
+	</p>
+</div>

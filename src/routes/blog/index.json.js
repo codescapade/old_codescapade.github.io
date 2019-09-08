@@ -1,10 +1,11 @@
-import {getPosts} from './_posts.js';
+import {getPosts} from './_posts';
 
 const contents = JSON.stringify(getPosts().map(post => {
 	return {
 		title: post.title,
 		slug: post.slug,
 		excerpt: post.excerpt,
+		displaydate: post.displaydate
 	};
 }));
 

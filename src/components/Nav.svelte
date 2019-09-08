@@ -1,36 +1,18 @@
 
 <script>
 	import Divider from './Divider.svelte';
-	import { HomeIcon, BookOpenIcon } from 'svelte-feather-icons';
+	import { HomeIcon, BookOpenIcon, SunIcon, MoonIcon } from 'svelte-feather-icons';
+	import { theme } from '../store';
 
 	export let segment;
 
-	const items = [
-		{
-			name: 'Home',
-			link: '.',
-			active: undefined,
-			icon: '<i class=\"material-icons-outlined mobile-nav\">home</i>',
-		},
-		{
-			name: 'Blog',
-			link: 'blog',
-			active: 'blog',
-			icon: '',
-		},
-		{
-			name: 'Games',
-			link: 'games',
-			active: 'games',
-			icon: '<i class=\"material-icons-outlined mobile-nav\">videogame_asset</i>',
-		},
-		{
-			name: 'About',
-			link: 'about',
-			active: 'about',
-			icon: '<i class=\"material-icons-outlined mobile-nav\">info</i>',
+	function toggleTheme() {
+		if ($theme === 'light') {
+			theme.set('dark');
+		} else {
+			theme.set('light');
 		}
-	];
+	}
 </script>
 
 <style>
@@ -51,15 +33,15 @@
 	nav ul li a {
 		display: inline-block;
 		text-align: center;
-		color: #a6a6a6;
 	}
 
 	.navigation {
 		position: -webkit-sticky; /* Safari */
 		position: sticky;
 		top: 0;
-		background-color: #fff;
+		background-color: var(--background);
 		z-index: 5;
+		transition: 0.5s;
 	}
 
 	.desktop-nav {
@@ -72,6 +54,11 @@
 		font-size: 2.2rem;
 	}
 
+	a {
+		color: var(--header-color);
+		transition: 0.3s;
+	}
+
 	@media screen and (min-width: 800px) {
 		.mobile-nav {
 			display: none;
@@ -79,23 +66,26 @@
 
 		.desktop-nav {
 			display: block;
-			font-size: 1.5rem;
-		}
-
-		a {
-			padding-bottom: 8px;
+			padding-top: 6px;
+			font-size: 1.2rem;
 		}
 
 		a:hover {
-			color: #50D7A4 !important;
+			color: var(--link-hover) !important;
+			transition: 0.3s;
 		}
 	}
 
 	.active {
-		color: #47C2FF !important;
+		color: var(--link) !important;
 	}
 
 </style>
+<svelte:head>
+	{#if $theme === 'dark'}
+	<link rel="stylesheet" href="dark.css">
+	{/if}
+</svelte:head>
 
 <div class='navigation'>
 	<nav>
@@ -118,7 +108,7 @@
 			</li>
 			<li>
 				<a class='{segment === "games" ? "active" : ""}' href='games'>
-					<span class='desktop-nav'>Game</span>
+					<span class='desktop-nav'>Games</span>
 					<span class='mobile-nav'>
 							<i class='material-icons-outlined mobile-nav'>videogame_asset</i>
 					</span>
@@ -132,10 +122,15 @@
 					</span>
 				</a>
 			</li>
-			<!-- <li><a class='{segment === undefined ? "active" : ""}' href='.'>Home</a></li>
-			<li><a rel=prefetch class='{segment === "blog" ? "active" : ""}' href='blog'>Blog</a></li>
-			<li><a rel=prefetch class='{segment === "games" ? "active" : ""}' href='games'>Games</a></li>
-			<li><a class='{segment === "about" ? "active" : ""}' href='about'>About</a></li> -->
+			<li>
+				<a href="javascript:void(0)" on:click='{toggleTheme}'>
+					{#if $theme === 'dark'}
+						<SunIcon />
+					{:else}
+						<MoonIcon />
+					{/if}
+				</a>
+			</li>
 		</ul>
 	</nav>
 	<Divider/>

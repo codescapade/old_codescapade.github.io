@@ -1,34 +1,59 @@
 <script context="module">
 	export function preload({ params, query }) {
-		return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
-			return { posts };
+		return this.fetch(`games.json`).then(r => r.json()).then(games => {
+			return { games };
 		});
 	}
 </script>
 
 <script>
-	export let posts;
+	export let games;
 </script>
 
 <style>
 	ul {
-		margin: 0 0 1em 0;
-		line-height: 1.5;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	img {
+		width: 200px;
+		height: 200px;
+	}
+
+	.game-container {
+		text-align: center;
+		
+	}
+
+	.border {
+		display: block;
+		height: 3px;
+		margin: 10px auto;
+		width: 240px;
+		border-bottom: 3px solid var(--link);
+	}
+
+	.item {
+		margin-bottom: 50px;
 	}
 </style>
 
 <svelte:head>
-	<title>Blog</title>
+	<title>Games | Codescapade</title>
 </svelte:head>
 
-<h1>Temp Games Page</h1>
-
 <ul>
-	{#each posts as post}
-		<!-- we're using the non-standard `rel=prefetch` attribute to
-				tell Sapper to load the data for the page as soon as
-				the user hovers over the link or taps it, instead of
-				waiting for the 'click' event -->
-		<li><a rel='prefetch' href='blog/{post.slug}'><h2>{post.title}</h2><p>{post.excerpt}</p></a></li>
+	{#each games as game}
+		<li class='column one-third item'>
+			<a rel='prefetch' href='games/{game.slug}'>
+				<div class="game-container">
+					<h2>{game.title}</h2>
+					<img src='{game.cover}' alt='cover picture'/>
+				</div>
+				<div class='border'></div>
+			</a>
+		</li>
 	{/each}
 </ul>

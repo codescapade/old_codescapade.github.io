@@ -1,16 +1,16 @@
-import {getPosts} from '../blog/_posts.js';
+import { getGames } from './_games';
 
-const contents = JSON.stringify(getPosts().map(post => {
+const contents = JSON.stringify(getGames().map(game => {
 	return {
-		title: post.title,
-		slug: post.slug,
-		excerpt: post.excerpt,
+		title: game.title,
+		slug: game.slug,
+		cover: game.cover,
 	};
 }));
 
 export function get(req, res) {
 	res.writeHead(200, {
-		'Content-Type': 'application/json'
+		'Content-Type': 'application/json',
 	});
 
 	res.end(contents);

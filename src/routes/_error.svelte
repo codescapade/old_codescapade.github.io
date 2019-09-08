@@ -28,13 +28,13 @@
 </style>
 
 <svelte:head>
-	<title>{status}</title>
+	<title>Error {status} | Codescapade</title>
 </svelte:head>
 
-<h1>{status}</h1>
+<h1>Error {status}</h1>
 
 <p>{error.message}</p>
-
+<a href='.'>Go to homepage</a>
 {#if dev && error.stack}
 	<pre>{error.stack}</pre>
 {/if}
