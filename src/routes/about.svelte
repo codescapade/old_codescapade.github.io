@@ -36,13 +36,13 @@
   <a href="http://haxeflixel.com" target="_blank" rel="noopener noreferrer">Haxeflixel</a>.
   I think I tried them all at this point. At the moment I’m using
   <a
-    href="https://www.cocos.com/en/"
+    href="http://kha.tech"
     target="_blank"
     rel="noopener noreferrer"
   >
-    Cocos Creator
+    Kha
   </a>
-  to create a mobile game.
+  to create Snake The Dots.
 </p>
 <p>
   I I’m using this site as a portfolio for my games and projects and to blog
